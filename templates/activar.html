@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="inicio-sesion">
+
+  <header>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registrarUsuario">Crear cuenta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/activarUsuario">Activar usuario</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </header>
+  <main>
+
+    <section class="content">
+      {% for message in get_flashed_messages() %}
+      <div class="alert alert-primary">{{ message }}</div>
+      {% endfor %}
+    </section>
+    <section class="container mt-5">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <form action="/activarCuenta" method="POST">
+            <div class="card">
+              <div class="card-header">
+                <p>Activar usuario</p>
+              </div>
+              <div class="card-body">
+
+                <div class="mb-3">
+                  <label for="codigo" class="form-label">Codigo de autenticación</label>
+                  <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" required>
+                </div>
+
+              </div>
+              <div class="card-footer text-muted">
+                <button type="submit" class="btn btn-primary">Activar cuenta</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+</html>
